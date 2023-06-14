@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_003445) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_005340) do
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_003445) do
     t.datetime "updated_at", null: false
     t.integer "family_id"
     t.integer "genus_id"
+    t.index ["name"], name: "index_plants_on_name", unique: true
   end
 
   add_foreign_key "plants", "families"
