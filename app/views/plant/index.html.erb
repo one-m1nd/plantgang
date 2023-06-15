@@ -1,29 +1,19 @@
-<div class="grid grid-cols-12">
-  <div class="col-span-6 text-2xl">
-    Name
-  </div>
-
-  <div class="col-span-3 text-2xl">
-    Family
-  </div>
-
-  <div class="col-span-3 text-2xl">
-    Genus
-  </div>
-
+<table class="table-auto border-spacing-2 border-separate border border-slate-900">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Family</th>
+    <th>Genus</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @plants.each do |plant| %>
-    <div class="col-span-6">
-      <%= plant.name %>
-    </div>
-
-    <div class="col-span-3">
-      <%= plant.family.name %>
-    </div>
-
-    <div class="col-span-3">
-      <%= plant.genus.name %>
-    </div>
-
+    <tr>
+      <td class="border border-slate-900"><%= plant.name %></td>
+      <td class="border border-slate-900"><%= plant.family.name %></td>
+      <td class="border border-slate-900"><%= plant.genus.name %></td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
 
