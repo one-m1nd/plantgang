@@ -1,6 +1,6 @@
 class CreateGenus < ActiveRecord::Migration[7.0]
   def change
-    create_table :genus do |t|
+    create_table :genera do |t|
       t.string :name
 
       t.timestamps
