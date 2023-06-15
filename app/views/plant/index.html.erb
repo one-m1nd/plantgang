@@ -1,0 +1,17 @@
+<div class="grid grid-cols-12">
+  <% @plants.each do |plant| %>
+    <div class="col-span-6">
+      <%= plant.name %>
+    </div>
+
+    <div class="col-span-3">
+      <%= plant.family.name %>
+    </div>
+
+    <div class="col-span-3">
+      <%= plant.genus.name %>
+    </div>
+
+  <% end %>
+</div>
+
