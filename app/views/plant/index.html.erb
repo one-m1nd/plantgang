@@ -1,4 +1,16 @@
 <div class="grid grid-cols-12">
+  <div class="col-span-6 text-2xl">
+    Name
+  </div>
+
+  <div class="col-span-3 text-2xl">
+    Family
+  </div>
+
+  <div class="col-span-3 text-2xl">
+    Genus
+  </div>
+
   <% @plants.each do |plant| %>
     <div class="col-span-6">
       <%= plant.name %>
