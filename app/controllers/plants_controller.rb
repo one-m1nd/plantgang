@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: %i[ show edit update destroy ]
+  before_action :set_plant, only: %i[ show edit update destroy]
 
   # GET /plants or /plants.json
   def index
@@ -22,6 +22,7 @@ class PlantsController < ApplicationController
   # POST /plants or /plants.json
   def create
     @plant = Plant.new(plant_params)
+    @plant.name = @plant.name.split(" ").map(&:capitalize).join(" ")
 
     respond_to do |format|
       if @plant.save
@@ -36,6 +37,8 @@ class PlantsController < ApplicationController
 
   # PATCH/PUT /plants/1 or /plants/1.json
   def update
+    @plant.name = @plant.name.split(" ").map(&:capitalize).join(" ")
+
     respond_to do |format|
       if @plant.update(plant_params)
         format.html { redirect_to plant_url(@plant), notice: "Plant was successfully updated." }
@@ -65,6 +68,6 @@ class PlantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plant_params
-      params.fetch(:plant, {})
+      params.require(:plant).permit([:name, :family_id, :genus_id])
     end
 end
