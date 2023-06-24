@@ -8,6 +8,7 @@
     "@babel/runtime": "7",
     "babel-loader": "8",
     "compression-webpack-plugin": "9",
+    "react_ujs": "^2.7.1",
     "shakapacker": "7.0.0",
     "terser-webpack-plugin": "5",
     "webpack": "5",
