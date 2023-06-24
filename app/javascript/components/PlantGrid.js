@@ -10,14 +10,17 @@ const columns = [
   { key: 'genus', name: 'Genus' }
 ];
 
+function rowGetter(row) {
+  return row.id;
+}
 
 class PlantGrid extends React.Component {
   render () {
-    var plants = JSON.parse(this.props.plants);
-    var rows = plants.map(x => ({ id: x.id, name: x.name, family: x.family, genus: x.genus }));
+    let plants = JSON.parse(this.props.plants);
+    let rows = plants.map(x => ({ id: x.id, name: x.name, family: x.family, genus: x.genus }));
 
     return (
-        <DataGrid columns={columns} rows={rows} />
+        <DataGrid columns={columns} rows={rows} rowKeyGetter={rowGetter}/>
     );
   }
 }
