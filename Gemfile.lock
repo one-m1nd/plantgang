@@ -73,6 +73,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    base64 (0.2.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -95,11 +96,25 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    domain_name (0.6.20240107)
     erubi (1.12.0)
     execjs (2.8.1)
+    ffi (1.16.3)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (1.1.0)
       activesupport (>= 5.0)
     highline (2.0.3)
+    http (5.2.0)
+      addressable (~> 2.8)
+      base64 (~> 0.1)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.5.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.6)
@@ -111,6 +126,9 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    llhttp-ffi (0.5.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -258,6 +276,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  http (~> 5)
   importmap-rails
   jbuilder
   puma (~> 5.0)

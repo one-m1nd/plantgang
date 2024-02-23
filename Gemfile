@@ -77,3 +77,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "shakapacker", "= 7.0"
 
 gem "react-rails", "= 2.7"
+
+gem "http", "~> 5"
