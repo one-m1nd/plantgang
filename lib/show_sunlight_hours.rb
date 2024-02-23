@@ -6,8 +6,6 @@ class ShowSunlightHours
   LAT = 42.3723008
   LONG = -71.10656
 
-  TIMEZONE = 'UTC'.freeze
-
   URL = 'https://api.sunrise-sunset.org/json'.freeze
 
   class << self
@@ -15,7 +13,7 @@ class ShowSunlightHours
     def show
       body = HTTP
         .use(logging: { logger: Rails.logger })
-        .get(URL, params: { lat: LAT, lng: LONG, tzid: TIMEZONE, formatted: 0 })
+        .get(URL, params: { lat: LAT, lng: LONG, formatted: 0 })
         .parse
 
       sunrise = Time.rfc3339(body['results']['sunrise'])
