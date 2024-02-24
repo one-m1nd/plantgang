@@ -9,7 +9,7 @@ class ShowSunlightHours
   URL = 'https://api.sunrise-sunset.org/json'.freeze
 
   class << self
-    # @return [Float] Hours of sunlight
+    # @return [Hash] Hours of sunlight
     def show
       body = HTTP
         .use(logging: { logger: Rails.logger })
@@ -18,7 +18,9 @@ class ShowSunlightHours
 
       sunrise = Time.rfc3339(body['results']['sunrise'])
       sunset = Time.rfc3339(body['results']['sunset'])
-      (sunset - sunrise)/60/60
+      hours = (sunset - sunrise)/60/60
+
+      { hours: hours, sunrise: sunrise.localtime, sunset: sunset.localtime }
     end
   end
 end
