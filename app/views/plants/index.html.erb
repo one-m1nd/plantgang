@@ -8,5 +8,26 @@
     <%= link_to 'New plant', new_plant_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <%= react_component('PlantGrid', plants: JSON.dump(@plants.map { |x| { id: x.id, name: x.name, family: x.family.name, genus: x.genus.name, url: plant_url(x)} })) %>
+  <table class="table-auto border-spacing-4 border-separate border border-slate-900">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Family</th>
+      <th>Genus</th>
+      <th>URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @plants.each do |plant| %>
+      <tr>
+        <td class="border border-slate-900"><%= plant.name %></td>
+        <td class="border border-slate-900"><%= plant.family.name %></td>
+        <td class="border border-slate-900"><%= plant.genus.name %></td>
+        <td class="border border-slate-900">
+          <a href="<%= plant_url(plant) %>">Show</a>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
