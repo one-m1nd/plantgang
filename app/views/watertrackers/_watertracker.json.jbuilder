@@ -1,0 +1,1 @@
+json.extract! watertracker, :id, :date
