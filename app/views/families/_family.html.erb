@@ -1,0 +1,38 @@
+<div id="<%= dom_id family %>">
+  <% if action_name != "show" %>
+    <%= link_to "Show this family", family, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this family', edit_family_path(family), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
+
+<table class="table-auto border-spacing-4 border-separate border border-slate-900">
+  <thead>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr>
+    <td class="border border-slate-900">ID</td>
+    <td class="border border-slate-900"><%= @family.id %></td>
+  </tr>
+
+  <tr>
+    <td class="border border-slate-900">Name</td>
+    <td class="border border-slate-900"><%= @family.name %></td>
+  </tr>
+
+  <tr>
+    <td class="border border-slate-900">Genera</td>
+    <td class="border border-slate-900"><%= @family.genera.map(&:name).uniq.to_sentence %></td>
+  </tr>
+
+  <tr>
+    <td class="border border-slate-900">Plants</td>
+    <td class="border border-slate-900"><%= @family.plants.map(&:name).to_sentence %></td>
+  </tr>
+  </tbody>
+</table>
