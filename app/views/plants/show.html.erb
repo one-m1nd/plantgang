@@ -13,35 +13,3 @@
     <%= link_to 'Back to plants', plants_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
-
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if @plant.trefle_data.present? %>
-      <table class="table-auto border-spacing-4 border-separate border border-slate-900">
-        <thead>
-        <tr>
-          <th>Attribute</th>
-          <th>Value</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <tr>
-          <td class="border border-slate-900">Synonyms</td>
-          <td class="border border-slate-900"><%= @plant.trefle_data['synonyms'].to_sentence %></td>
-        </tr>
-
-        <tr>
-          <td class="border border-slate-900">Images</td>
-          <td class="border border-slate-900"><%= @plant.trefle_data.fetch('image_url', '') %></td>
-        </tr>
-
-        <tr>
-          <td class="border border-slate-900">Common name</td>
-          <td class="border border-slate-900"><%= @plant.trefle_data.fetch('common_name', '') %></td>
-        </tr>
-        </tbody>
-      </table>
-    <% end %>
-  </div>
-</div>
