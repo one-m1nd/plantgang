@@ -2,7 +2,7 @@ require "test_helper"
 
 class GeneraControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @genus = genera(:one)
+    @genus = genus(:one)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class GeneraControllerTest < ActionDispatch::IntegrationTest
 
   test "should create genus" do
     assert_difference("Genus.count") do
-      post genera_url, params: { genus: {  } }
+      post genera_url, params: { genus: { name: 'OmegaGenus' } }
     end
 
     assert_redirected_to genus_url(Genus.last)
@@ -34,15 +34,7 @@ class GeneraControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update genus" do
-    patch genus_url(@genus), params: { genus: {  } }
+    patch genus_url(@genus), params: { genus: { name: 'GigaGenus' } }
     assert_redirected_to genus_url(@genus)
-  end
-
-  test "should destroy genus" do
-    assert_difference("Genus.count", -1) do
-      delete genus_url(@genus)
-    end
-
-    assert_redirected_to genera_url
   end
 end

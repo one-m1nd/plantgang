@@ -1,25 +1,25 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: %i[ show edit update destroy ]
 
-  # GET /genera or /genera.json
+  # GET /families or /families.json
   def index
     @families = Family.all.includes(:plants, :genera)
   end
 
-  # GET /genera/1 or /genera/1.json
+  # GET /families/1 or /families/1.json
   def show
   end
 
-  # GET /genera/new
+  # GET /families/new
   def new
     @family = Family.new
   end
 
-  # GET /genera/1/edit
+  # GET /families/1/edit
   def edit
   end
 
-  # POST /genera or /genera.json
+  # POST /families or /families.json
   def create
     @family = Family.new(family_params)
     @family.name = @family.name.capitalize
@@ -35,7 +35,7 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /genera/1 or /genera/1.json
+  # PATCH/PUT /families/1 or /families/1.json
   def update
     respond_to do |format|
       if @family.update(family_params)
@@ -48,7 +48,7 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # DELETE /genera/1 or /genera/1.json
+  # DELETE /families/1 or /families/1.json
   def destroy
     @family.destroy
 

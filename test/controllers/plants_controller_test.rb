@@ -17,7 +17,7 @@ class PlantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create plant" do
     assert_difference("Plant.count") do
-      post plants_url, params: { plant: {  } }
+      post plants_url, params: { plant: { name: 'PlantThree', family_id: 1, genus_id: 1 } }
     end
 
     assert_redirected_to plant_url(Plant.last)
@@ -34,7 +34,7 @@ class PlantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update plant" do
-    patch plant_url(@plant), params: { plant: {  } }
+    patch plant_url(@plant), params: { plant: { name: 'PlantFour' } }
     assert_redirected_to plant_url(@plant)
   end
 
