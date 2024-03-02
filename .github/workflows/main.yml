@@ -23,5 +23,16 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.16.0
+          cache: yarn
+      - name: Install packages
+        run: yarn install --pure-lockfile
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+        run: bin/rails db:setup
       - name: Run the default task
         run: bin/rails test
