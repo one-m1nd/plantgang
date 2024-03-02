@@ -34,5 +34,7 @@ jobs:
         env:
           RAILS_ENV: test
         run: bin/rails db:setup
+      - name: Assets
+        run: bin/rails assets:precompile
       - name: Run the default task
         run: bin/rails test
