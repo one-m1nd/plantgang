@@ -17,11 +17,11 @@ class Plant < ApplicationRecord
 
   class << self
     def dead
-      Plant.where(status_id: Status.find_by(name: 'Dead'))
+      Plant.where(status_id: Status.dead)
     end
 
     def alive
-      Plant.where(status_id: Status.find_by(name: 'Alive'))
+      Plant.where(status_id: Status.alive)
     end
   end
 end
