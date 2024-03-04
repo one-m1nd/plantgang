@@ -1,6 +1,7 @@
 class Plant < ApplicationRecord
   belongs_to :family
   belongs_to :genus
+  has_one :status
 
   # @return [Hash]
   def trefle_data
