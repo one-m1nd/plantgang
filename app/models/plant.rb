@@ -1,7 +1,4 @@
 class Plant < ApplicationRecord
-  DEAD = 2
-  ALIVE = 1
-
   belongs_to :family
   belongs_to :genus
   belongs_to :status
@@ -20,11 +17,11 @@ class Plant < ApplicationRecord
 
   class << self
     def dead
-      Plant.where(status_id: DEAD)
+      Plant.where(status_id: Status.find_by(name: 'Dead'))
     end
 
     def alive
-      Plant.where(status_id: ALIVE)
+      Plant.where(status_id: Status.find_by(name: 'Alive'))
     end
   end
 end
