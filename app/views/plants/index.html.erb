@@ -18,6 +18,7 @@
       <th>Genus</th>
       <th>Status</th>
       <th>URL</th>
+      <th>Search</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,11 @@
         <td class="border border-slate-900"><%= plant.status.name %></td>
         <td class="border border-slate-900">
           <a href="<%= plant_url(plant) %>">Show</a>
+        </td>
+        <td class="border border-slate-900">
+          <a href="<%= "https://www.google.com/search?q=#{plant.name}" %>" target="_blank">
+            Google
+          </a>
         </td>
       </tr>
     <% end %>
