@@ -3,7 +3,7 @@ class PlantsController < ApplicationController
 
   # GET /plants or /plants.json
   def index
-    @plants = Plant.all.includes(:genus, :family).sort_by(&:name)
+    @plants = Plant.all.includes(:genus, :family, :status).sort_by(&:name)
   end
 
   # GET /plants/1 or /plants/1.json
