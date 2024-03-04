@@ -7,3 +7,7 @@ end
 json.family do
   json.extract! plant.family, :id, :name, :created_at, :updated_at
 end
+
+json.status do
+  json.extract! plant.status, :id, :name, :created_at, :updated_at
+end

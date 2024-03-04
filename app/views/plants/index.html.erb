@@ -4,7 +4,9 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl"> <%= @plants.length %> Plants</h1>
+    <h1 class="font-bold text-4xl"> <%= @plants.length %> Plants </h1>
+    <h2> <%= @plants.select { |plant| plant.status.id == 1 }.length %> Alive </h2>
+    <h2> <%= @plants.select { |plant| plant.status.id == 2 }.length %> Dead </h2>
     <%= link_to 'New plant', new_plant_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
@@ -14,6 +16,7 @@
       <th>Name</th>
       <th>Family</th>
       <th>Genus</th>
+      <th>Status</th>
       <th>URL</th>
     </tr>
     </thead>
@@ -23,6 +26,7 @@
         <td class="border border-slate-900"><%= plant.name %></td>
         <td class="border border-slate-900"><%= plant.family.name %></td>
         <td class="border border-slate-900"><%= plant.genus.name %></td>
+        <td class="border border-slate-900"><%= plant.status.name %></td>
         <td class="border border-slate-900">
           <a href="<%= plant_url(plant) %>">Show</a>
         </td>

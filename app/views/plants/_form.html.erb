@@ -14,6 +14,7 @@
   <%= form.text_field :name %>
   <%= collection_select(:plant, :family_id, Family.all.sort_by(&:name), :id, :name, prompt: true) %>
   <%= collection_select(:plant, :genus_id, Genus.all.sort_by(&:name), :id, :name, prompt: true) %>
+  <%= collection_select(:plant, :status_id, Status.all, :id, :name, prompt: true) %>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
