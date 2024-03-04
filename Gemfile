@@ -53,6 +53,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "sord"
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'webmock', '~> 3'
 end
 
 group :development do
