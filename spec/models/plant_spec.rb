@@ -16,8 +16,17 @@ RSpec.describe Plant, type: :model do
   end
 
   describe '#trefle_data' do
-    it do
+    before(:each) do
+      stub_request(:get, "https://trefle.io/api/v1/plants/search")
+        .with(query: { q: Plant.first.name })
+        .to_return(status: 404, headers: { 'Content-Type' => 'application/json' })
+
     end
 
+    subject { Plant.first.trefle_data }
+
+    it do
+      expect(subject).to be_instance_of(Hash)
+    end
   end
 end
