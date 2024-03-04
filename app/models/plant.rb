@@ -1,4 +1,7 @@
 class Plant < ApplicationRecord
+  DEAD = 2
+  ALIVE = 1
+
   belongs_to :family
   belongs_to :genus
   belongs_to :status
@@ -12,6 +15,16 @@ class Plant < ApplicationRecord
       else
         {}
       end
+    end
+  end
+
+  class << self
+    def dead
+      Plant.where(status_id: DEAD)
+    end
+
+    def alive
+      Plant.where(status_id: ALIVE)
     end
   end
 end
