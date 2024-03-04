@@ -5,11 +5,5 @@ class Watertracker < ApplicationRecord
     def next_date(days = 21)
       Watertracker.last.date + days.days
     end
-
-    # Creates water tracker object for today, i.e we watered the plants today
-    # @return [void]
-    def for_today
-      Watertracker.create(date: Date.today)
-    end
   end
 end
