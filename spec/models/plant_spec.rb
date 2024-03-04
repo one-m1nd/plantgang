@@ -19,7 +19,7 @@ RSpec.describe Plant, type: :model do
     before(:each) do
       stub_request(:get, "https://trefle.io/api/v1/plants/search")
         .with(query: { q: Plant.first.name })
-        .to_return(status: 404, headers: { 'Content-Type' => 'application/json' })
+        .to_return(status: 404, body: '{}', headers: { 'Content-Type' => 'application/json' })
 
     end
 
