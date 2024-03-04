@@ -27,6 +27,33 @@ RSpec.describe Plant, type: :model do
 
     it do
       expect(subject).to be_instance_of(Hash)
+      expect(
+        a_request(:get, "https://trefle.io/api/v1/plants/search").with(query: { q: Plant.first.name })
+      ).to have_been_made
+    end
+  end
+
+  describe '#family' do
+    subject { Plant.first.family }
+
+    it do
+      expect(subject).to be_instance_of(Family)
+    end
+  end
+
+  describe '#genus' do
+    subject { Plant.first.genus }
+
+    it do
+      expect(subject).to be_instance_of(Genus)
+    end
+  end
+
+  describe '#status' do
+    subject { Plant.first.status }
+
+    it do
+      expect(subject).to be_instance_of(Status)
     end
   end
 end
