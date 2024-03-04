@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_04_165600) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_04_165702) do
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_165600) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_watertrackers_on_date"
   end
 
   add_foreign_key "plants", "families"
