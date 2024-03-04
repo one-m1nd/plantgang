@@ -36,5 +36,7 @@ jobs:
         run: bin/rails db:setup
       - name: Assets
         run: bin/rails assets:precompile
-      - name: Run the default task
+      - name: Run tests
         run: bin/rails test
+      - name: Run rspec tests
+        run: bin/rails rspec
