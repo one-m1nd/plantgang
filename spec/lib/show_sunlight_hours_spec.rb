@@ -8,7 +8,7 @@ RSpec.describe ShowSunlightHours do
 
     before(:each) do
       stub_request(:get, "https://api.sunrise-sunset.org/json")
-        .with(query: { formatted: 0, lat: 42.3723008, lng: -71.10656 })
+        .with(query: { formatted: 0, lat: ShowSunlightHours::LAT, lng: ShowSunlightHours::LONG })
         .to_return(status: 200, body: body, headers: {'Content-Type' => 'application/json'})
 
         end
@@ -22,7 +22,7 @@ RSpec.describe ShowSunlightHours do
       expect(subject[:sunrise]).to be_instance_of(Time)
       expect(
         a_request(:get, "https://api.sunrise-sunset.org/json")
-          .with(query: { formatted: 0, lat: 42.3723008, lng: -71.10656 })
+          .with(query: { formatted: 0, lat: ShowSunlightHours::LAT, lng: ShowSunlightHours::LONG })
       ).to have_been_made
     end
   end
