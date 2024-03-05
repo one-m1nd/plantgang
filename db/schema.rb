@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_04_165702) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_05_043259) do
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_165702) do
     t.integer "family_id"
     t.integer "genus_id"
     t.integer "status_id"
+    t.integer "year_acquired"
     t.index ["name"], name: "index_plants_on_name", unique: true
   end
 
