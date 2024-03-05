@@ -17,7 +17,7 @@ class PlantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create plant" do
     assert_difference("Plant.count") do
-      post plants_url, params: { plant: { name: 'PlantThree', family_id: 1, genus_id: 1, status_id: 1 } }
+      post plants_url, params: { plant: { name: 'PlantThree', family_id: 1, genus_id: 1, status_id: 1, year_acquired: 2017 } }
     end
 
     assert_redirected_to plant_url(Plant.last)
