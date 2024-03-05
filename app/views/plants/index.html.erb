@@ -17,6 +17,7 @@
       <th>Family</th>
       <th>Genus</th>
       <th>Status</th>
+      <th>Since</th>
       <th>URL</th>
       <th>Search</th>
     </tr>
@@ -28,6 +29,7 @@
         <td class="border border-slate-900"><%= plant.family.name %></td>
         <td class="border border-slate-900"><%= plant.genus.name %></td>
         <td class="border border-slate-900"><%= plant.status.name %></td>
+        <td class="border border-slate-900"><%= plant.year_acquired %></td>
         <td class="border border-slate-900">
           <a href="<%= plant_url(plant) %>">Show</a>
         </td>
