@@ -10,6 +10,7 @@ end
 json.plants family.plants do |plant|
   json.id plant.id
   json.name plant.name
+  json.common_name plant.common_name
   json.year_acquired plant.year_acquired
   json.status plant.status.name
   json.created_at plant.created_at
