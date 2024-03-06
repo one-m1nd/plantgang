@@ -4,6 +4,15 @@ class PlantsController < ApplicationController
   # GET /plants or /plants.json
   def index
     @plants = Plant.all.includes(:genus, :family, :status).sort_by(&:name)
+
+    case
+    when params[:genus].present?
+      @plants.select! { |plant| plant.genus.name == params[:genus] }
+    when params[:family].present?
+      @plants.select! { |plant| plant.family.name == params[:family] }
+    when params[:year_acquired].present?
+      @plants.select! { |plant| plant.year_acquired == params[:year_acquired] }
+    end
   end
 
   # GET /plants/1 or /plants/1.json
@@ -63,7 +72,8 @@ class PlantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plant
-      @plant = Plant.find(params[:id])
+      @plant = Plant.find_by(name: params[:id])
+      @plant ||= Plant.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
