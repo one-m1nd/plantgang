@@ -12,6 +12,7 @@
   <% end %>
 
   <%= form.text_field :name %>
+  <%= form.text_field :common_name %>
   <%= collection_select(:plant, :family_id, Family.all.sort_by(&:name), :id, :name, prompt: true) %>
   <%= collection_select(:plant, :genus_id, Genus.all.sort_by(&:name), :id, :name, prompt: true) %>
   <%= collection_select(:plant, :status_id, Status.all, :id, :name, prompt: true) %>
