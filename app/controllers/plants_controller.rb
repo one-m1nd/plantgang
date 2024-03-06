@@ -10,6 +10,8 @@ class PlantsController < ApplicationController
       @plants.select! { |plant| plant.genus.name == params[:genus] }
     when params[:family].present?
       @plants.select! { |plant| plant.family.name == params[:family] }
+    when params[:status].present?
+      @plants.select! { |plant| plant.status.name == params[:status] }
     when params[:year_acquired].present?
       @plants.select! { |plant| plant.year_acquired == params[:year_acquired] }
     end
