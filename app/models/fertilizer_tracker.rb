@@ -1,0 +1,2 @@
+class FertilizerTracker < ApplicationRecord
+end

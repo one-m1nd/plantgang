@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fertilizer_trackers
   resources :genera
   resources :plants
   resources :families

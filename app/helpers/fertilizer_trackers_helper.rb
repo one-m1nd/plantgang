@@ -1,0 +1,2 @@
+module FertilizerTrackersHelper
+end
