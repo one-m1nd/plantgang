@@ -65,6 +65,6 @@ class FertilizerTrackersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fertilizer_tracker_params
-      params.fetch(:fertilizer_tracker, {})
+      params.require(:fertilizer_tracker).permit([:name, :date])
     end
 end
