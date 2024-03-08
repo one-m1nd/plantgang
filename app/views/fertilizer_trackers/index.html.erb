@@ -9,6 +9,25 @@
   </div>
 
   <div id="fertilizer_trackers" class="min-w-full">
-    <%= render @fertilizer_trackers %>
+    <table class="table-auto border-spacing-4 border-separate border border-slate-900">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Show</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @fertilizer_trackers.each do |tracker| %>
+        <tr>
+          <td class="border border-slate-900"><%= tracker.name %></td>
+          <td class="border border-slate-900"><%= tracker.date %></td>
+          <td class="border border-slate-900">
+            <a href="<%= fertilizer_tracker_url(tracker) %>">Show</a>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
