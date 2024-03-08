@@ -169,7 +169,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    plants (0.2.0)
+    plants (0.3.0)
       http (~> 5)
     public_suffix (5.0.1)
     puma (5.6.5)
