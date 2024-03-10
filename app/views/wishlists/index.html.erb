@@ -1,0 +1,37 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Wishlists</h1>
+    <%= link_to 'New wishlist', new_wishlist_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="wishlists" class="min-w-full">
+    <table class="table-auto border-spacing-4 border-separate border border-slate-900">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Search</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @wishlists.each do |wishlist| %>
+      <tr>
+        <td class="border border-slate-900"><%= wishlist.name %></td>
+        <td class="border border-slate-900">
+          <a href="<%= wishlist_url(wishlist) %>">Show</a>
+        </td>
+        <td class="border border-slate-900">
+          <a href="<%= "https://www.google.com/search?q=#{wishlist.name}" %>" target="_blank">
+            Google
+          </a>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
